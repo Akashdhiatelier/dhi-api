@@ -1,0 +1,67 @@
+const ROUTE_CONSTANTS = {
+  AUTH: "auth",
+  DASHBOARD: "dashboard",
+  USERS: "users",
+  MODULES: "modules",
+  ROLES: "roles",
+  ROLES_PERMISSION: "role-permission",
+  MATERIAL_COLORS: "material-colors",
+  MATERIALS: "materials",
+  CATEGORIES: "categories",
+  PROFILE: "profile",
+  MODELS: "models",
+  TAGS: "tags",
+  CMS: "cms",
+  PROJECTS: "projects",
+  PUBLIC: "public",
+  MODEL_CONSTANTS: {
+    UPDATE_MODEL_CONFIG: "update-model-config/:id",
+    CREATE_VARIATION: "create-variation/:id",
+    UPDATE_VARIATION: "update-variation",
+    DELETE_VARIATION: "delete-variation/:id",
+  },
+  PROJECT_CONSTANTS: {
+    GET_ALL_LIKED_PROJECTS: "get-all-liked-projects",
+    GET_PROJECT_COMMENTS: "get-project-comments/:id",
+    ADD_PROJECT_COMMENT: "add-project-comment/:id",
+    ADD_PROJECT_MEDIA: "add-project-media/:id",
+    DELETE_PROJECT_MEDIA: "delete-project-media/:id",
+    UPDATE_PROJECT_CONFIG: "update-project-config/:id",
+    CREATE_VARIATION: "create-variation/:id",
+    UPDATE_VARIATION: "update-variation",
+    DELETE_VARIATION: "delete-variation/:id",
+  },
+  LOGOUT: "logout",
+};
+
+const AUTH_CONSTANTS = {
+  LOGIN: "login",
+  REGISTER: "register",
+  VERIFY_USER: "verify/:token",
+  RESET_PASSWORD: "reset-password/:token",
+  FORGOT_PASSWORD: "forgot-password",
+  SET_PASSWORD: "set-password",
+  DELETE_PROFILE: "delete-profile",
+};
+
+const CRUD_CONSTANTS = {
+  ADD: "add",
+  GET_ALL: "get-all",
+  GET: "get",
+  GET_STATICSTICS: "get-staticstics",
+  GET_BY_ID: "get/:id",
+  GET_BY_ID_PUBLIC: "get/:id",
+  UPDATE: "update",
+  UPDATE_BY_ID: "update/:id",
+  DELTE_BY_ID: "delete/:id",
+  UPLOAD_BY_ID: "upload/:id",
+  MULTI_UPDATE: "multi-update",
+  MULTI_DELETE: "multi-delete",
+  ADD_CAMERAS_VIEWS: "add-cameras-views/:id",
+  GET_LIKES: "get-likes/:id",
+  GET_BOOKMARKS: "get-bookmarks/:id",
+  LIKE: "like/:id/:bool",
+  SAVE: "save/:id/:bool",
+};
+
+module.exports = { ROUTE_CONSTANTS, AUTH_CONSTANTS, CRUD_CONSTANTS };

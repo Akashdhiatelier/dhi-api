@@ -1,0 +1,1316 @@
+{
+  "info": {
+    "_postman_id": "61ce0834-0903-4dda-991c-58396d723181",
+    "name": "dhi-atelier-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "17522887"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "auth",
+          "item": [
+            {
+              "name": "login",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"email\" : \"dhiadmin@mailinator.com\",\n    \"password\" : \"wings123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/auth/login",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "register",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"first_name\" : \"Vishal\",\n    \"last_name\" : \"G\",\n    \"email\" : \"vishalg@mailinator.com\",\n    \"role\" : 2,\n    \"status\": \"Active\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/auth/register",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "verify",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/auth/verify/46bb9126bf7fc02f10a65a589a30ff8b400442fc87a3386bd662188f330b6e06109bedcee323e94d",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "verify",
+                    "46bb9126bf7fc02f10a65a589a30ff8b400442fc87a3386bd662188f330b6e06109bedcee323e94d"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "reset-password",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"password\" : \"wings123\",\n    \"confirm_password\" : \"wings123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/auth/reset-password/9fe908a228381b2080c3144f101997846c1561b7a19c281ac3d6ab3212ec3f55078458037741eef4",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "reset-password",
+                    "9fe908a228381b2080c3144f101997846c1561b7a19c281ac3d6ab3212ec3f55078458037741eef4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "logout",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/logout",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "logout"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "modules",
+          "item": [
+            {
+              "name": "add",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\" : \"Users\",\n    \"slug\": \"users\",\n    \"status\" : \"Active\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/modules/add",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "modules",
+                    "add"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get-all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/modules/get-all",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "modules",
+                    "get-all"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\" : \"Dashboard\",\n    \"slug\" : \"dashoboard\",\n    \"status\" : \"Active\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/modules/update/1",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "modules",
+                    "update",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/modules/delete/1",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "modules",
+                    "delete",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "roles",
+          "item": [
+            {
+              "name": "add",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\" : \"Super Admin\",\n    \"status\" : \"Active\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/roles/add",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "roles",
+                    "add"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get-all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/roles/get-all",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "roles",
+                    "get-all"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\" : \"Super Admin\",\n    \"status\" : \"Active\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/roles/update/1",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "roles",
+                    "update",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/roles/delete/1",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "roles",
+                    "delete",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "users",
+          "item": [
+            {
+              "name": "get-all",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/users/get-all?_page=1&_limit=10&_sort=id&_order=desc&role=All&status=All&q=",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "users",
+                    "get-all"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "_limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_sort",
+                      "value": "id"
+                    },
+                    {
+                      "key": "_order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "role",
+                      "value": "All"
+                    },
+                    {
+                      "key": "status",
+                      "value": "All"
+                    },
+                    {
+                      "key": "q",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "avatar",
+                      "contentType": "multipart/form-data",
+                      "type": "file",
+                      "src": "/Users/karankalavadia/Desktop/caveman.png"
+                    },
+                    {
+                      "key": "first_name",
+                      "value": "User",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "last_name",
+                      "value": "Name",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "email",
+                      "value": "karankkk@mailinator.com",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "role",
+                      "value": "4",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "status",
+                      "value": "Inactive",
+                      "contentType": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{development}}/users/update/5",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "users",
+                    "update",
+                    "5"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/users/delete/7",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "users",
+                    "delete",
+                    "7"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "role_permissions",
+          "item": [
+            {
+              "name": "add",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"role\" : \"Customer\",\n    \"status\" : \"Active\",\n    \"permissions\" : [\n        {\n            \"module_id\" : 1,\n            \"read\" : true,\n            \"write\" : true,\n            \"update\" : true,\n            \"delete\" : true,\n            \"status\" : \"Active\"\n        },\n        {\n            \"module_id\" : 2,\n            \"read\" : true,\n            \"write\" : true,\n            \"update\" : true,\n            \"delete\" : true,\n            \"status\" : \"Active\"\n        }\n    ]\n    \n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/role-permissions/add",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "role-permissions",
+                    "add"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\" : \"Customer\",\n    \"status\" : \"Active\",\n    \"permissions\" : [\n        {\n            \"module_id\" : 1,\n            \"read\" : true,\n            \"write\" : true,\n            \"update\" : true,\n            \"delete\" : true,\n            \"status\" : \"Active\"\n        },\n        {\n            \"module_id\" : 2,\n            \"read\" : true,\n            \"write\" : true,\n            \"update\" : true,\n            \"delete\" : true,\n            \"status\" : \"Active\"\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/role-permissions/update/4",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "role-permissions",
+                    "update",
+                    "4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getPermissionById",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/role-permissions/get/1",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "role-permissions",
+                    "get",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "material_colors",
+          "item": [
+            {
+              "name": "addColor",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Pure Black\",\n    \"color\": \"#000000\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/material-colors/add",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "material-colors",
+                    "add"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getAllMaterialColors",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/material-colors/get-all",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "material-colors",
+                    "get-all"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateColorById",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"White\",\n    \"color\": \"#FFFFFF\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/material-colors/update/6",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "material-colors",
+                    "update",
+                    "6"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "deleteColorById",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/material-colors/delete/6",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "material-colors",
+                    "delete",
+                    "6"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "categories",
+          "item": [
+            {
+              "name": "addCategory",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Corridor\",\n    \"status\": \"Active\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/categories/add",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "categories",
+                    "add"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getAllCategories",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/categories/get-all?_page=1&_limit=10&_sort=id&_order=desc&status=All&q=",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "categories",
+                    "get-all"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "_limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_sort",
+                      "value": "id"
+                    },
+                    {
+                      "key": "_order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "status",
+                      "value": "All"
+                    },
+                    {
+                      "key": "q",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateCategoryById",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\" : \"Corridoor\",\n    \"status\": \"Active\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/categories/update/6",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "categories",
+                    "update",
+                    "6"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "deleteCategoryById",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/categories/delete/6",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "categories",
+                    "delete",
+                    "6"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "materials",
+          "item": [
+            {
+              "name": "addNewMaterial",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "material",
+                      "contentType": "multipart/form-data",
+                      "type": "file",
+                      "src": "/Users/karankalavadia/Desktop/caveman.png"
+                    },
+                    {
+                      "key": "name",
+                      "value": "wwddwdwd",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "color",
+                      "value": "1",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "price",
+                      "value": "20",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "status",
+                      "value": "Active",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "H1",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{development}}/materials/add",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "materials",
+                    "add"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getAllMaterials",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/materials/get-all?_page=1&_limit=10&_sort=id&_order=desc&status=All&q",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "materials",
+                    "get-all"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "_limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_sort",
+                      "value": "id"
+                    },
+                    {
+                      "key": "_order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "status",
+                      "value": "All"
+                    },
+                    {
+                      "key": "q",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateMaterialById",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "material",
+                      "contentType": "multipart/form-data",
+                      "type": "file",
+                      "src": "/Users/karankalavadia/Desktop/caveman.png"
+                    },
+                    {
+                      "key": "name",
+                      "value": "Ab1",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "color",
+                      "value": "2",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "H2",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "price",
+                      "value": "30",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "status",
+                      "value": "Active",
+                      "contentType": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{development}}/materials/update/8",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "materials",
+                    "update",
+                    "8"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "deleteMaterialById",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/materials/delete/8",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "materials",
+                    "delete",
+                    "8"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "myprofile",
+          "item": [
+            {
+              "name": "getProfileById",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"email\": \"dhiadmin@mailinator.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/profile/get",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "profile",
+                    "get"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateProfileById",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "avatar",
+                      "contentType": "multipart/form-data",
+                      "type": "file",
+                      "src": "/Users/karankalavadia/Desktop/caveman.png"
+                    },
+                    {
+                      "key": "first_name",
+                      "value": "DHI",
+                      "type": "text"
+                    },
+                    {
+                      "key": "last_name",
+                      "value": "Admin",
+                      "type": "text"
+                    },
+                    {
+                      "key": "email",
+                      "value": "dhiadmin@mailinator.com",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{development}}/profile/update/1",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "profile",
+                    "update",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "setNewPassword",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"current_password\" : \"wings123\",\n    \"password\": \"wings123\",\n    \"confirm_password\": \"wings123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{development}}/profile/set-password/1",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "profile",
+                    "set-password",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "models",
+          "item": [
+            {
+              "name": "addNewModel",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "models",
+                      "contentType": "multipart/form-data",
+                      "type": "file",
+                      "src": []
+                    },
+                    {
+                      "key": "name",
+                      "value": "model 1",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "category",
+                      "value": "1",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "Description",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "tag1,tag2",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "vendor_name",
+                      "value": "name",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "price",
+                      "value": "10",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "status",
+                      "value": "Active",
+                      "contentType": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{development}}/models/add",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "models",
+                    "add"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateModel",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "models",
+                      "contentType": "multipart/form-data",
+                      "type": "file",
+                      "src": []
+                    },
+                    {
+                      "key": "name",
+                      "value": "Model",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "category",
+                      "value": "1",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "description",
+                      "value": "Description Paragraph",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "tag1",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "vendor_name",
+                      "value": "name",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "price",
+                      "value": "10",
+                      "contentType": "application/json",
+                      "type": "text"
+                    },
+                    {
+                      "key": "status",
+                      "value": "Active",
+                      "contentType": "application/json",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{development}}/models/update/1",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "models",
+                    "update",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getAllModels",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/models/get-all?_page=1&_limit=10&_sort=id&_order=desc&category=All&status=All&q",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "models",
+                    "get-all"
+                  ],
+                  "query": [
+                    {
+                      "key": "_page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "_limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_sort",
+                      "value": "id"
+                    },
+                    {
+                      "key": "_order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "category",
+                      "value": "All"
+                    },
+                    {
+                      "key": "status",
+                      "value": "All"
+                    },
+                    {
+                      "key": "q",
+                      "value": null
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "deleteModelById",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "{{development}}/models/delete/1",
+                  "host": [
+                    "{{development}}"
+                  ],
+                  "path": [
+                    "models",
+                    "delete",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVfaWQiOjEsImVtYWlsIjoiZGhpYWRtaW5AbWFpbGluYXRvci5jb20iLCJpYXQiOjE2NzgzNDQ3MjIsImV4cCI6MTY3ODM0ODMyMn0.RmFpZcemERvePEzO9gxj9iHXgoWjB_aVsuJPZD_IpQw",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "development",
+      "value": "http://localhost:8080/api/v1",
+      "type": "string"
+    }
+  ]
+}
