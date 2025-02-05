@@ -1,0 +1,2661 @@
+openapi: 3.0.0
+info:
+  title: dhi-atelier-api
+  contact: {}
+  version: "1.0"
+servers:
+  - url: http://localhost:8080/api/v1
+    variables: {}
+paths:
+  /auth/login:
+    post:
+      tags:
+        - auth
+      summary: login
+      operationId: login
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/loginrequest"
+                - example:
+                    email: dhiadmin@mailinator.com
+                    password: wings123
+            example:
+              email: dhiadmin@mailinator.com
+              password: wings123
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/verify/{verify-token}:
+    parameters:
+      - in: path
+        name: verify-token
+        schema:
+          type: string
+        required: true
+        description: verify token
+    get:
+      tags:
+        - auth
+      summary: verify
+      operationId: verify
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/reset-password/{reset-token}:
+    parameters:
+      - in: path
+        name: reset-token
+        schema:
+          type: string
+        required: true
+        description: reset token
+    put:
+      tags:
+        - auth
+      summary: reset-password
+      operationId: reset-password
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/reset-password-request"
+                - example:
+                    password: wings123
+                    confirm_password: wings123
+            example:
+              password: wings123
+              confirm_password: wings123
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+  /auth/forgot-password:
+    post:
+      tags:
+        - auth
+      summary: forgotPassword
+      operationId: forgotPassword
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    email: dhiadmin@mailinator.com
+            example:
+              email: dhiadmin@mailinator.com
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+      security: []
+  /logout:
+    get:
+      tags:
+        - auth
+      summary: logout
+      operationId: logout
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /modules/add:
+    post:
+      tags:
+        - modules
+      summary: add
+      operationId: add
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/addrequest"
+                - example:
+                    name: Users
+                    slug: users
+                    status: Active
+            example:
+              name: Users
+              slug: users
+              status: Active
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /modules/get-all:
+    get:
+      tags:
+        - modules
+      summary: get-all
+      operationId: get-all
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /modules/get/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: module id
+    get:
+      tags:
+        - modules
+      summary: getModuleById
+      operationId: getModuleById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /modules/update/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: module id
+    put:
+      tags:
+        - modules
+      summary: update
+      operationId: update
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/updaterequest"
+                - example:
+                    name: Dashboard
+                    slug: dashoboard
+                    status: Active
+            example:
+              name: Dashboard
+              slug: dashoboard
+              status: Active
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /modules/delete/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: module id
+    put:
+      tags:
+        - modules
+      summary: delete
+      operationId: delete
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /roles/add:
+    post:
+      tags:
+        - roles
+      summary: add
+      operationId: Postadd
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/addrequest1"
+                - example:
+                    name: Super Admin
+                    status: Active
+            example:
+              name: Super Admin
+              status: Active
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /roles/get-all:
+    get:
+      tags:
+        - roles
+      summary: get-all
+      operationId: Getget-all
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /roles/update/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: role id
+    put:
+      tags:
+        - roles
+      summary: update
+      operationId: Putupdate
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/updaterequest1"
+                - example:
+                    name: Super Admin
+                    status: Active
+            example:
+              name: Super Admin
+              status: Active
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /roles/delete/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: role id
+    put:
+      tags:
+        - roles
+      summary: delete
+      operationId: Putdelete
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /roles/multi-update:
+    put:
+      tags:
+        - roles
+      summary: updateMultipleRoles
+      operationId: updateMultipleRoles
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    role_ids:
+                      - 1
+                      - 2
+                      - 3
+                    status: "Active"
+            example:
+              role_ids:
+                - 1
+                - 2
+                - 3
+              status: "Active"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /roles/multi-delete:
+    put:
+      tags:
+        - roles
+      summary: deleteMultipleRoles
+      operationId: deleteMultipleRoles
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    role_ids:
+                      - 1
+                      - 2
+                      - 3
+            example:
+              role_ids:
+                - 1
+                - 2
+                - 3
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /users/get-all:
+    get:
+      tags:
+        - users
+      summary: get-all
+      operationId: Getget-all1
+      parameters:
+        - name: _page
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 1
+        - name: _limit
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 10
+        - name: _sort
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: id
+        - name: _order
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: desc
+        - name: role
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: All
+        - name: status
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: All
+        - name: q
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /users/add:
+    post:
+      tags:
+        - users
+      summary: add
+      operationId: add
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding: {}
+            schema:
+              required:
+                - avatar
+                - first_name
+                - last_name
+                - email
+                - role
+                - status
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+                first_name:
+                  type: string
+                  example: User
+                last_name:
+                  type: string
+                  example: Name
+                email:
+                  type: string
+                  example: karankkk@mailinator.com
+                role:
+                  type: integer
+                  format: int32
+                  example: 4
+                status:
+                  type: string
+                  example: Inactive
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /users/get/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: users id
+    get:
+      tags:
+        - users
+      summary: getUsersById
+      operationId: getUsersById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /users/update/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: users id
+    put:
+      tags:
+        - users
+      summary: update
+      operationId: Putupdate1
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding: {}
+            schema:
+              required:
+                - avatar
+                - first_name
+                - last_name
+                - email
+                - role
+                - status
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+                first_name:
+                  type: string
+                  example: User
+                last_name:
+                  type: string
+                  example: Name
+                email:
+                  type: string
+                  example: karankkk@mailinator.com
+                role:
+                  type: integer
+                  format: int32
+                  example: 4
+                status:
+                  type: string
+                  example: Inactive
+        required: false
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /users/delete/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: users id
+    put:
+      tags:
+        - users
+      summary: delete
+      operationId: Putdelete1
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /users/multi-update:
+    put:
+      tags:
+        - users
+      summary: updateMultipleUsers
+      operationId: updateMultipleUsers
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    user_ids:
+                      - 1
+                      - 2
+                      - 3
+                    status: "Active"
+            example:
+              user_ids:
+                - 1
+                - 2
+                - 3
+              status: "Active"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /users/multi-delete:
+    put:
+      tags:
+        - users
+      summary: deleteMultipleUsers
+      operationId: deleteMultipleUsers
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    user_ids:
+                      - 1
+                      - 2
+                      - 3
+            example:
+              user_ids:
+                - 1
+                - 2
+                - 3
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /role-permission/add:
+    post:
+      tags:
+        - role_permissions
+      summary: add
+      operationId: Postadd1
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/addrequest2"
+                - example:
+                    name: Customer
+                    status: Active
+                    permissions:
+                      - module_id: 1
+                        read: true
+                        write: true
+                        update: true
+                        delete: true
+                        status: Active
+                      - module_id: 2
+                        read: true
+                        write: true
+                        update: true
+                        delete: true
+                        status: Active
+            example:
+              name: Customer
+              status: Active
+              permissions:
+                - module_id: 1
+                  read: true
+                  write: true
+                  update: true
+                  delete: true
+                  status: Active
+                - module_id: 2
+                  read: true
+                  write: true
+                  update: true
+                  delete: true
+                  status: Active
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /role-permission/update/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: role permissions id
+    put:
+      tags:
+        - role_permissions
+      summary: update
+      operationId: Putupdate2
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/updaterequest2"
+                - example:
+                    name: Customer
+                    status: Active
+                    permissions:
+                      - module_id: 1
+                        read: true
+                        write: true
+                        update: true
+                        delete: true
+                        status: Active
+                      - module_id: 2
+                        read: true
+                        write: true
+                        update: true
+                        delete: true
+                        status: Active
+            example:
+              name: Customer
+              status: Active
+              permissions:
+                - module_id: 1
+                  read: true
+                  write: true
+                  update: true
+                  delete: true
+                  status: Active
+                - module_id: 2
+                  read: true
+                  write: true
+                  update: true
+                  delete: true
+                  status: Active
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /role-permission/get/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: role permissions id
+    get:
+      tags:
+        - role_permissions
+      summary: getPermissionById
+      operationId: getPermissionById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /material-colors/add:
+    post:
+      tags:
+        - material_colors
+      summary: addColor
+      operationId: addColor
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/addColorRequest"
+                - example:
+                    name: Pure Black
+                    color: "#000000"
+            example:
+              name: Pure Black
+              color: "#000000"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /material-colors/get-all:
+    get:
+      tags:
+        - material_colors
+      summary: getAllMaterialColors
+      operationId: getAllMaterialColors
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /material-colors/update/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: material colors id
+    put:
+      tags:
+        - material_colors
+      summary: updateColorById
+      operationId: updateColorById
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/updateColorByIdRequest"
+                - example:
+                    name: White
+                    color: "#FFFFFF"
+            example:
+              name: White
+              color: "#FFFFFF"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /material-colors/delete/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: material colors id
+    put:
+      tags:
+        - material_colors
+      summary: deleteColorById
+      operationId: deleteColorById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /categories/add:
+    post:
+      tags:
+        - categories
+      summary: addCategory
+      operationId: addCategory
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/addCategoryRequest"
+                - example:
+                    name: Corridor
+                    status: Active
+            example:
+              name: Corridor
+              status: Active
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /categories/get-all:
+    get:
+      tags:
+        - categories
+      summary: getAllCategories
+      operationId: getAllCategories
+      parameters:
+        - name: _page
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 1
+        - name: _limit
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 10
+        - name: _sort
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: id
+        - name: _order
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: desc
+        - name: status
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: All
+        - name: q
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /categories/get/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: category id
+    get:
+      tags:
+        - categories
+      summary: getCategoryById
+      operationId: getCategoryById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /categories/update/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: category id
+    put:
+      tags:
+        - categories
+      summary: updateCategoryById
+      operationId: updateCategoryById
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/updateCategoryByIdRequest"
+                - example:
+                    name: Corridoor
+                    status: Active
+            example:
+              name: Corridoor
+              status: Active
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /categories/delete/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: category id
+    put:
+      tags:
+        - categories
+      summary: deleteCategoryById
+      operationId: deleteCategoryById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /categories/multi-update:
+    put:
+      tags:
+        - categories
+      summary: updateMultipleCategories
+      operationId: updateMultipleCategories
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    category_ids:
+                      - 1
+                      - 2
+                      - 3
+                    status: "Active"
+            example:
+              category_ids:
+                - 1
+                - 2
+                - 3
+              status: "Active"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /categories/multi-delete:
+    put:
+      tags:
+        - categories
+      summary: deleteMultipleCategories
+      operationId: deleteMultipleCategories
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    category_ids:
+                      - 1
+                      - 2
+                      - 3
+            example:
+              category_ids:
+                - 1
+                - 2
+                - 3
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /materials/add:
+    post:
+      tags:
+        - materials
+      summary: addNewMaterial
+      operationId: addNewMaterial
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding: {}
+            schema:
+              required:
+                - material
+                - name
+                - color
+                - price
+                - status
+                - tags
+              type: object
+              properties:
+                material:
+                  type: string
+                  format: binary
+                name:
+                  type: string
+                  example: wwddwdwd
+                color:
+                  type: integer
+                  format: int32
+                  example: 1
+                price:
+                  type: integer
+                  format: int32
+                  example: 20
+                status:
+                  type: string
+                  example: Active
+                tags:
+                  type: string
+                  example: H1
+        required: false
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /materials/get-all:
+    get:
+      tags:
+        - materials
+      summary: getAllMaterials
+      operationId: getAllMaterials
+      parameters:
+        - name: _page
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 1
+        - name: _limit
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 10
+        - name: _sort
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: id
+        - name: _order
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: desc
+        - name: status
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: All
+        - name: q
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /materials/get/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: material id
+    get:
+      tags:
+        - materials
+      summary: getMaterialById
+      operationId: getMaterialById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /materials/update/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: material id
+    put:
+      tags:
+        - materials
+      summary: updateMaterialById
+      operationId: updateMaterialById
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding: {}
+            schema:
+              required:
+                - material
+                - name
+                - color
+                - tags
+                - price
+                - status
+              type: object
+              properties:
+                material:
+                  type: string
+                  format: binary
+                name:
+                  type: string
+                  example: Ab1
+                color:
+                  type: integer
+                  format: int32
+                  example: 2
+                tags:
+                  type: string
+                  example: H2
+                price:
+                  type: integer
+                  format: int32
+                  example: 30
+                status:
+                  type: string
+                  example: Active
+        required: false
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /materials/delete/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: material id
+    put:
+      tags:
+        - materials
+      summary: deleteMaterialById
+      operationId: deleteMaterialById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /materials/multi-update:
+    put:
+      tags:
+        - materials
+      summary: updateMultipleMaterials
+      operationId: updateMultipleMaterials
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    material_ids:
+                      - 1
+                      - 2
+                      - 3
+                    status: "Active"
+            example:
+              material_ids:
+                - 1
+                - 2
+                - 3
+              status: "Active"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /materials/multi-delete:
+    put:
+      tags:
+        - materials
+      summary: deleteMultipleMaterials
+      operationId: deleteMultipleMaterials
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    material_ids:
+                      - 1
+                      - 2
+                      - 3
+            example:
+              material_ids:
+                - 1
+                - 2
+                - 3
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /profile/get:
+    get:
+      tags:
+        - myprofile
+      summary: getProfileById
+      operationId: getProfileById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /profile/delete-profile:
+    put:
+      tags:
+        - myprofile
+      summary: deleteProfile
+      operationId: deleteProfile
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /profile/update:
+    put:
+      tags:
+        - myprofile
+      summary: updateProfileById
+      operationId: updateProfileById
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding: {}
+            schema:
+              required:
+                - first_name
+                - last_name
+                - email
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+                first_name:
+                  type: string
+                  example: DHI
+                last_name:
+                  type: string
+                  example: Admin
+                email:
+                  type: string
+                  example: dhiadmin@mailinator.com
+        required: false
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /profile/set-password:
+    put:
+      tags:
+        - myprofile
+      summary: setNewPassword
+      operationId: setNewPassword
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/setNewPasswordRequest"
+                - example:
+                    current_password: wings123
+                    password: wings123
+                    confirm_password: wings123
+            example:
+              current_password: wings123
+              password: wings123
+              confirm_password: wings123
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/add:
+    post:
+      tags:
+        - models
+      summary: addNewModel
+      operationId: addNewModel
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding: {}
+            schema:
+              required:
+                - models
+                - name
+                - category
+                - description
+                - tags
+                - vendor_name
+                - price
+                - status
+              type: object
+              properties:
+                models:
+                  type: string
+                  format: binary
+                name:
+                  type: string
+                  example: model 1
+                category:
+                  type: integer
+                  format: int32
+                  example: 1
+                description:
+                  type: string
+                  example: Description
+                tags:
+                  type: string
+                  example: tag1,tag2
+                vendor_name:
+                  type: string
+                  example: name
+                price:
+                  type: integer
+                  format: int32
+                  example: 10
+                status:
+                  type: string
+                  example: Active
+        required: false
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/update/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: model id
+    put:
+      tags:
+        - models
+      summary: updateModel
+      operationId: updateModel
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding: {}
+            schema:
+              required:
+                - models
+                - name
+                - category
+                - description
+                - tags
+                - vendor_name
+                - price
+                - status
+              type: object
+              properties:
+                models:
+                  type: string
+                  format: binary
+                name:
+                  type: string
+                  example: Model
+                category:
+                  type: integer
+                  format: int32
+                  example: 1
+                description:
+                  type: string
+                  example: Description Paragraph
+                tags:
+                  type: string
+                  example: tag1
+                vendor_name:
+                  type: string
+                  example: name
+                price:
+                  type: integer
+                  format: int32
+                  example: 10
+                status:
+                  type: string
+                  example: Active
+        required: false
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/get-all:
+    get:
+      tags:
+        - models
+      summary: getAllModels
+      operationId: getAllModels
+      parameters:
+        - name: _page
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 1
+        - name: _limit
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 10
+        - name: _sort
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: id
+        - name: _order
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: desc
+        - name: category
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: All
+        - name: status
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: All
+        - name: q
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/get:
+    get:
+      tags:
+        - models
+      summary: getAllModelsWithSearch
+      operationId: getAllModelsWithSearch
+      parameters:
+        - name: q
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/get/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: model id
+    get:
+      tags:
+        - models
+      summary: getModelById
+      operationId: getModelById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/delete/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: model id
+    put:
+      tags:
+        - models
+      summary: deleteModelById
+      operationId: deleteModelById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/upload/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: model id
+    put:
+      tags:
+        - models
+      summary: addModelGLB
+      operationId: addModelGLB
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding: {}
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  format: binary
+        required: false
+        responses:
+          "200":
+            description: ""
+            headers: {}
+        deprecated: false
+  /models/update-model-config/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: model id
+    put:
+      tags:
+        - models
+      summary: updateModelConfig
+      operationId: updateModelConfig
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "#/components/schemas/addConfigRequest"
+                - example:
+                    config:
+                      - material_id: 8
+                        layer_id: "layer_1"
+            example:
+              config:
+                - material_id: 8
+                  layer_id: "layer_1"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/multi-update:
+    put:
+      tags:
+        - models
+      summary: updateMultipleModels
+      operationId: updateMultipleModels
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    model_ids:
+                      - 1
+                      - 2
+                      - 3
+                    status: "Active"
+            example:
+              model_ids:
+                - 1
+                - 2
+                - 3
+              status: "Active"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/multi-delete:
+    put:
+      tags:
+        - models
+      summary: deleteMultipleModels
+      operationId: deleteMultipleModels
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    model_ids:
+                      - 1
+                      - 2
+                      - 3
+            example:
+              model_ids:
+                - 1
+                - 2
+                - 3
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/create-variation/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: model id
+    post:
+      tags:
+        - models
+      summary: createVariation
+      operationId: createVariation
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    name: "variation"
+                    variation:
+                      - material_id: 3,
+                        layer_id: "layer_1"
+            example:
+              name: "variation"
+              variation:
+                - material_id: 3,
+                  layer_id: "layer_1"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/update-variation:
+    put:
+      tags:
+        - models
+      summary: updateVariation
+      operationId: updateVariation
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    id: 21
+                    name: "variation"
+                    variation:
+                      - id: 31,
+                        material_id: 3,
+                        layer_id: "layer_1"
+            example:
+              id: 21
+              name: "variation"
+              variation:
+                - id: 31,
+                  material_id: 3,
+                  layer_id: "layer_1"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /models/delete-variation/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: model id
+    delete:
+      tags:
+        - models
+      summary: deleteVariation
+      operationId: deleteVariation
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /projects/add:
+    post:
+      tags:
+        - projects
+      summary: addNewProject
+      operationId: addNewProject
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding: {}
+            schema:
+              required:
+                - name
+                - price
+                - status
+              type: object
+              properties:
+                thumbnail:
+                  type: string
+                  format: binary
+                name:
+                  type: string
+                  example: project 1
+                description:
+                  type: string
+                  example: Description
+                tags:
+                  type: string
+                  example:
+                    [
+                      { "label": "j", "value": "j", "__isNew__": true },
+                      { "label": "k", "value": "k", "__isNew__": true },
+                      { "label": "l", "value": "l", "__isNew__": true },
+                    ]
+                price:
+                  type: integer
+                  format: int32
+                  example: 10
+                status:
+                  type: string
+                  example: Active
+        required: false
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /projects/update/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: project id
+    put:
+      tags:
+        - projects
+      summary: updateProjectById
+      operationId: updateProjectById
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding: {}
+            schema:
+              required:
+                - name
+                - price
+                - status
+              type: object
+              properties:
+                thumbnail:
+                  type: string
+                  format: binary
+                name:
+                  type: string
+                  example: Model
+                description:
+                  type: string
+                  example: Description Paragraph
+                tags:
+                  type: string
+                  example:
+                    [
+                      { "label": "j", "value": "j", "__isNew__": true },
+                      { "label": "k", "value": "k", "__isNew__": true },
+                      { "label": "l", "value": "l", "__isNew__": true },
+                    ]
+                price:
+                  type: integer
+                  format: int32
+                  example: 10
+                status:
+                  type: string
+                  example: Active
+        required: false
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /projects/get-all:
+    get:
+      tags:
+        - projects
+      summary: getAllProjects
+      operationId: getAllProjects
+      parameters:
+        - name: _page
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 1
+        - name: _limit
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int32
+            example: 10
+        - name: _sort
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: id
+        - name: _order
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: desc
+        - name: status
+          in: query
+          description: ""
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+            example: All
+        - name: q
+          in: query
+          description: ""
+          style: form
+          explode: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /projects/get/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: project id
+    get:
+      tags:
+        - projects
+      summary: getProjectById
+      operationId: getProjectById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /projects/delete/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: project id
+    put:
+      tags:
+        - projects
+      summary: deleteProjectById
+      operationId: deleteProjectById
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /projects/upload/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: project id
+    put:
+      tags:
+        - projects
+      summary: uploadProjectById
+      operationId: uploadProjectById
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding: {}
+            schema:
+              type: object
+              properties:
+                project:
+                  type: string
+                  format: binary
+        required: false
+        responses:
+          "200":
+            description: ""
+            headers: {}
+        deprecated: false
+  /projects/multi-update:
+    put:
+      tags:
+        - projects
+      summary: updateMultipleProjects
+      operationId: updateMultipleProjects
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    project_ids:
+                      - 1
+                      - 2
+                      - 3
+                    status: "Active"
+            example:
+              project_ids:
+                - 1
+                - 2
+                - 3
+              status: "Active"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /projects/multi-delete:
+    put:
+      tags:
+        - projects
+      summary: deleteMultipleProjects
+      operationId: deleteMultipleProjects
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    projects_ids:
+                      - 1
+                      - 2
+                      - 3
+            example:
+              projects_ids:
+                - 1
+                - 2
+                - 3
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /projects/update-project-config/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: project id
+    post:
+      tags:
+        - projects
+      summary: updateProjectConfig
+      operationId: updateProjectConfig
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    config:
+                      - model_id: 1
+                        object_id: "object_1"
+                        allow_change: true
+                        allow_move: true
+            example:
+              config:
+                - model_id: 1
+                  object_id: "object_1"
+                  allow_change: true
+                  allow_move: true
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /dashboard/get-staticstics:
+    get:
+      tags:
+        - dashboard
+      summary: getStatictics
+      operationId: getStatictics
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /tags/get:
+    get:
+      tags:
+        - tags
+      summary: searchTags
+      operationId: searchTags
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    q: l
+            example:
+              q: l
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /cms/{slug}:
+    parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+        description: slug
+    get:
+      tags:
+        - cms
+      summary: getBySlug
+      operationId: getBySlug
+      parameters: []
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+  /cms/{slugname}:
+    parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+        description: slug
+    put:
+      tags:
+        - cms
+      summary: updateBySlug
+      operationId: updateBySlug
+      parameters: []
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              allOf:
+                - example:
+                    content: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            example:
+              content: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    loginrequest:
+      title: loginrequest
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: dhiadmin@mailinator.com
+        password: wings123
+    registerrequest:
+      title: registerrequest
+      required:
+        - first_name
+        - last_name
+        - email
+        - role
+        - status
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        role:
+          type: integer
+          format: int32
+        status:
+          type: string
+    reset-password-request:
+      title: reset-password-request
+      required:
+        - password
+        - confirm_password
+      type: object
+      properties:
+        password:
+          type: string
+        confirm_password:
+          type: string
+      example:
+        password: wings123
+        confirm_password: wings123
+    addrequest:
+      title: addrequest
+      required:
+        - name
+        - slug
+        - status
+      type: object
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+        status:
+          type: string
+      example:
+        name: Users
+        slug: users
+        status: Active
+    updaterequest:
+      title: updaterequest
+      required:
+        - name
+        - slug
+        - status
+      type: object
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+        status:
+          type: string
+      example:
+        name: Dashboard
+        slug: dashoboard
+        status: Active
+    addrequest1:
+      title: addrequest1
+      required:
+        - name
+        - status
+      type: object
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+      example:
+        name: Super Admin
+        status: Active
+    updaterequest1:
+      title: updaterequest1
+      required:
+        - name
+        - status
+      type: object
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+      example:
+        name: Super Admin
+        status: Active
+    addrequest2:
+      title: addrequest2
+      required:
+        - name
+        - status
+        - permissions
+      type: object
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+        permissions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Permission"
+          description: ""
+      example:
+        role: Customer
+        status: Active
+        permissions:
+          - module_id: 1
+            read: true
+            write: true
+            update: true
+            delete: true
+            status: Active
+          - module_id: 2
+            read: true
+            write: true
+            update: true
+            delete: true
+            status: Active
+    Permission:
+      title: Permission
+      required:
+        - module_id
+        - read
+        - write
+        - update
+        - delete
+        - status
+      type: object
+      properties:
+        module_id:
+          type: integer
+          format: int32
+        read:
+          type: boolean
+        write:
+          type: boolean
+        update:
+          type: boolean
+        delete:
+          type: boolean
+        status:
+          type: string
+      example:
+        module_id: 1
+        read: true
+        write: true
+        update: true
+        delete: true
+        status: Active
+    updaterequest2:
+      title: updaterequest2
+      required:
+        - name
+        - status
+        - permissions
+      type: object
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+        permissions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Permission"
+          description: ""
+      example:
+        name: Customer
+        status: Active
+        permissions:
+          - module_id: 1
+            read: true
+            write: true
+            update: true
+            delete: true
+            status: Active
+          - module_id: 2
+            read: true
+            write: true
+            update: true
+            delete: true
+            status: Active
+    addColorRequest:
+      title: addColorRequest
+      required:
+        - name
+        - color
+      type: object
+      properties:
+        name:
+          type: string
+        color:
+          type: string
+      example:
+        name: Pure Black
+        color: "#000000"
+    updateColorByIdRequest:
+      title: updateColorByIdRequest
+      required:
+        - name
+        - color
+      type: object
+      properties:
+        name:
+          type: string
+        color:
+          type: string
+      example:
+        name: White
+        color: "#FFFFFF"
+    addCategoryRequest:
+      title: addCategoryRequest
+      required:
+        - name
+        - status
+      type: object
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+      example:
+        name: Corridor
+        status: Active
+    updateCategoryByIdRequest:
+      title: updateCategoryByIdRequest
+      required:
+        - name
+        - status
+      type: object
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+      example:
+        name: Corridoor
+        status: Active
+    setNewPasswordRequest:
+      title: setNewPasswordRequest
+      required:
+        - current_password
+        - password
+        - confirm_password
+      type: object
+      properties:
+        current_password:
+          type: string
+        password:
+          type: string
+        confirm_password:
+          type: string
+      example:
+        current_password: wings123
+        password: wings123
+        confirm_password: wings123
+    addConfigRequest:
+      title: addConfigRequest
+      required:
+        - config
+      type: object
+      properties:
+        config:
+          type: array
+          items:
+          description: ""
+      example:
+        config:
+          - material_id: 8
+            layer_id: "layer_1"
+          - material_id: 8
+            layer_id: "layer_1"
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security:
+  - bearer: []
+tags:
+  - name: auth
+  - name: modules
+  - name: roles
+  - name: users
+  - name: role_permissions
+  - name: material_colors
+  - name: categories
+  - name: materials
+  - name: myprofile
+  - name: models
+  - name: projects
+  - name: dashboard
+  - name: tags
+  - name: cms
